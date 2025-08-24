@@ -1,0 +1,14 @@
+{%extends "blog/base.html"%}
+{% block title %}{{post_detailtitle}}{% endblock %}
+
+{% block content %} 
+    <h1>{{ post_detail.title }}</h1> <!-- Post Title -->
+    <!-- Show post image -->
+    {% if post_detail.image %}
+        <img src="{{ post_detail.image.url }}" alt="{{ post_detail.title }}" style="max-width:400px;">
+    {%endif%}
+    <p>{{ object.content|linebreaks }}</p><!-- Post Contemt -->
+
+    <a href="{% url 'post_update' object.slug %}" class="btn btn-primary">Edit</a>
+    <a href="{% url 'post_delete' object.slug %}" class="btn btn-danger">Delete</a>
+{% endblock %}

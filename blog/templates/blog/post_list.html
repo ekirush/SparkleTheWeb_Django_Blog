@@ -1,0 +1,12 @@
+{%extends "blog/base.html"%}
+{% block title %}Home · Blog Posts{% endblock %}
+
+{% block content %}
+    {%for post in post_list%}
+        <ul>
+            <li>
+                <a href="{% url 'post_detail' post.slug %}">{{post.title}}</a>
+            </li>
+        </ul>
+    {%endfor%}
+{% endblock %}
